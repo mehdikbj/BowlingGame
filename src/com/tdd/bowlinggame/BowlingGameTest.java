@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// ugly comment in test.
 class BowlingGameTest {
     private final BowlingGame game = new BowlingGame();
 
@@ -27,10 +26,14 @@ class BowlingGameTest {
 
     @Test
     public void testOneSpare() throws Exception {
-        game.roll(5);
-        game.roll(5); // spare
+        rollSpare();
         game.roll(3);
         rollMany(17,0);
         assertEquals(16, game.score());
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
     }
 }
