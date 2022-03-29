@@ -4,23 +4,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Game creation is duplicated
-// roll loop is duplicated
 class BowlingGameTest {
+    private final BowlingGame game = new BowlingGame();
+
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++)
+            game.roll(pins);
+    }
+
     @Test
     public void testGutterGame() throws Exception {
-        BowlingGame game = new BowlingGame();
-        for (int i=0; i<20; i++)
-            game.roll(0);
+        rollMany(20, 0);
         assertEquals(0, game.score());
     }
 
     @Test
     public void testAllOnes() throws Exception {
-        BowlingGame game = new BowlingGame();
-        for (int i = 0; i < 20; i++)
-            game.roll(1);
+        rollMany(20,1);
         assertEquals(20, game.score());
     }
-
 }
